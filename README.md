@@ -34,7 +34,7 @@ Kotlin 团队为 Android 开发提供了一套超越标准语言功能的工具�
     implementation 'pub.devrel:easypermissions:3.0.0'
     
     
-## 如果要采用Mvp的写法，activity 需要继承 项目中的BaseActivity来完成，需要一个activity的control类，即MVP中的Model 类，view 则为activity present 需要继承RxPresenter来完成
-    如果是Fragment 则写法和 activity的 写法一样
-    如果要采用正常的mvc写法，只需要继承SimpleActivty或者SimpleFragment来完成，网络框架已经在BaseView中有了体现，使用时即使用Retrofit.getIns. ..... 就可以
+如果要采用Mvp的写法，activity 需要继承 项目中的BaseActivity来完成，需要一个activity的control类，即MVP中的Model 类，view 则为activity present 需要继承RxPresenter来完成
+如果是Fragment 则写法和 activity的 写法一样
+如果要采用正常的mvc写法，只需要继承SimpleActivty或者SimpleFragment来完成，网络框架已经在BaseView中有了体现，使用时即使用Retrofit.getIns. ..... 就可以
 
