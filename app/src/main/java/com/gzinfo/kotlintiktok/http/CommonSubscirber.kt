@@ -10,9 +10,8 @@ import io.reactivex.subscribers.ResourceSubscriber
  *@Email:m15904921255@163.com
  *@Desc:TODO
  */
-public abstract class CommonSubscriber<T>(view: BaseView) :
-    ResourceSubscriber<HttpResult<T>>() {
-    private val mView: BaseView
+public abstract class CommonSubscriber<T>(view: BaseView) : ResourceSubscriber<HttpResult<T>>() {
+    private val mView: BaseView = view
     protected abstract fun onAnalysisNext(t: T)
     override fun onStart() {
         super.onStart()
@@ -37,7 +36,4 @@ public abstract class CommonSubscriber<T>(view: BaseView) :
         mView.closeWaiteDialog()
     }
 
-    init {
-        mView = view
-    }
 }

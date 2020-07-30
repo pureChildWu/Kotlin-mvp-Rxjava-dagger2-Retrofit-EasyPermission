@@ -38,3 +38,11 @@ Kotlin 团队为 Android 开发提供了一套超越标准语言功能的工具�
 如果是Fragment 则写法和 activity的 写法一样
 如果要采用正常的mvc写法，只需要继承SimpleActivty或者SimpleFragment来完成，网络框架已经在BaseView中有了体现，使用时即使用Retrofit.getIns. ..... 就可以
 
+
+## 网络请求示例
+  1.首先在LCAPI 里面去写Retroit的调用api
+  2.然后再RetrofitHelper里面去调用
+  3.在present 里面就可以使用了
+  具体调用的网络请求示例可查看MianActivity里面的示例
+##此开源项目仅做学习交流使用, 不可用于任何商业用途，如果你觉得不错, 对你有帮助, 欢迎点个 star 谢谢
+

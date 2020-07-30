@@ -12,18 +12,18 @@ import io.reactivex.disposables.Disposable
  */
 open class RxPresenter<T : BaseView> : BasePresenter<T> {
 
-    var mView: T? = null
+    lateinit var mView: T
     private var mDisposables: CompositeDisposable? = null
 
     override fun detachView() {
         unSubscribe()
-        mView = null
+//        mView =  null;
     }
 
     private fun unSubscribe() {
         if (mDisposables != null) {
             mDisposables!!.dispose()
-            mView!!.closeWaiteDialog()
+            mView.closeWaiteDialog()
         }
     }
 

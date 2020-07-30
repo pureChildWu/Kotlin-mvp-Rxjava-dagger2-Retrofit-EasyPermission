@@ -22,7 +22,7 @@ class LoggingInterceptor : Interceptor {
     override fun intercept(@NonNull chain: Interceptor.Chain): Response {
         //这个chain里面包含了request和response，
         val request = chain.request()
-        val requestBody = request.body()
+        val requestBody = request.body
         var body: String? = null
         if (requestBody != null) {
             val buffer = Buffer()
@@ -40,7 +40,7 @@ class LoggingInterceptor : Interceptor {
         Log.e(this@LoggingInterceptor.javaClass.simpleName,
             String.format(
                 Locale.CHINA, "发送请求\nmethod：%s\nurl：%s\nheaders: %sbody：%s",
-                request.url(), chain.connection(), request.headers(), body
+                request.url, chain.connection(), request.headers, body
             )
         )
         val response = chain.proceed(request)
@@ -53,10 +53,10 @@ class LoggingInterceptor : Interceptor {
         Log.e(this@LoggingInterceptor.javaClass.simpleName,
             String.format(
                 Locale.CHINA, "接收响应: [%s] %n返回json:【%s】 %.1fms%n%s",
-                response.request().url(),
+                response.request.url,
                 responseBody.string(),
                 (t2 - t1) / 1e6,
-                response.headers()
+                response.headers
             )
         )
         return response

@@ -1,8 +1,9 @@
 package com.gzinfo.kotlintiktok.http
 
+import com.google.gson.JsonObject
 import io.reactivex.Flowable
-import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 /**
  *@ClassName:LCAPI
@@ -16,7 +17,7 @@ interface LCAPI {
     /**
      * 测试
      */
-    @POST("/api/systembase/getProvinceList")
-    fun getHomeInfo(@Body jsonObject: String): Flowable<HttpResult<List<Any>>>
+    @POST("/jujia/utilController/login5.do")
+    open fun getHomeInfo(@Query("name") name: String, @Query("psw") password: String): Flowable<HttpResult<Any>>
 
 }

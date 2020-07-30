@@ -85,8 +85,8 @@ private constructor() {
     /**
      * 首页
      */
-    fun getHomeInfo(jsonObject: String, subscriber: CommonSubscriber<List<Any>>): CommonSubscriber<List<Any>> {
-        return toSubscribe(api.getHomeInfo(jsonObject), subscriber)
+    fun getHomeInfo(name: String,psd : String, subscriber: CommonSubscriber<Any>): CommonSubscriber<Any> {
+        return toSubscribe(api.getHomeInfo(name,psd), subscriber)
     }
 
 
@@ -124,7 +124,7 @@ private constructor() {
      */
     fun setCertificates(bksFile: InputStream?, password: String?, vararg certificates: InputStream): RetrofitHelper {
         val sslParams: HttpsUtils.SSLParams = HttpsUtils.getSslSocketFactory(null, bksFile!!, password!!, certificates)
-        mOkHttpClientBuilder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+        mOkHttpClientBuilder.sslSocketFactory(sslParams.sSLSocketFactory!!, sslParams.trustManager!!)
         return this
     }
 
@@ -135,12 +135,12 @@ private constructor() {
      */
     fun setCertificates(bksFile: InputStream?, password: String?, trustManager: X509TrustManager): RetrofitHelper {
         val sslParams: HttpsUtils.SSLParams = HttpsUtils.getSslSocketFactory(trustManager, bksFile!!, password!!, null)
-        mOkHttpClientBuilder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+        mOkHttpClientBuilder.sslSocketFactory(sslParams.sSLSocketFactory!!, sslParams.trustManager!!)
         return this
     }
 
     companion object {
-        var API_BASE_URL: String = "BuildConfig."
+        var API_BASE_URL: String = "http://www.jjkj2017.com"
         private var INSTANCE: RetrofitHelper? = null
 
         @get:Synchronized

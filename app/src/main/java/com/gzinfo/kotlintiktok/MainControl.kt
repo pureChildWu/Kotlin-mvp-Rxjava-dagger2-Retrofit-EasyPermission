@@ -13,8 +13,10 @@ import com.gzinfo.kotlintiktok.base.BaseView
 interface MainControl {
     interface View : BaseView{
         fun add();
+        fun rebackTestData(any: Any)
     }
     interface Presenter : BasePresenter<View>{
         fun getAdd();
+        fun getTestNet()
     }
 }
