@@ -31,7 +31,7 @@ import javax.inject.Inject
  *@Email:m15904921255@163.com
  *@Desc:TODO
  */
-abstract class BaseActivity< T : BasePresenter<*>?> : SupportActivity(), BaseView, EasyPermissions.PermissionCallbacks {
+abstract class BaseActivity< T : BasePresenter<*>> : SupportActivity(), BaseView, EasyPermissions.PermissionCallbacks {
 
     @set:Inject
     var mPresenter: T? = null
@@ -44,7 +44,8 @@ abstract class BaseActivity< T : BasePresenter<*>?> : SupportActivity(), BaseVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
-//        fullScreen(R.color.white)
+        fullScreen(R.color.white)
+//        mPresenter?.attachView(this)//mPresenter 初始化
         initInject()
         initData()
     }

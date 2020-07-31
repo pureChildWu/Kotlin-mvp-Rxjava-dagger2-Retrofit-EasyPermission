@@ -1,9 +1,15 @@
 package com.gzinfo.kotlintiktok
 
+import android.util.Log
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import com.gzinfo.kotlintiktok.MainControl.*
+import com.gzinfo.kotlintiktok.base.BaseView
 import com.gzinfo.kotlintiktok.base.RxPresenter
 import com.gzinfo.kotlintiktok.http.CommonSubscriber
 import com.gzinfo.kotlintiktok.http.RetrofitHelper
+import com.orhanobut.logger.Logger
 import javax.inject.Inject
 
 /**
@@ -25,6 +31,18 @@ class MainPresenter @Inject constructor() : RxPresenter<View>() , Presenter{
                 mView.rebackTestData(t)
             }
         }))
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)//present 同绑定的 activity生命周期
+    fun onCreat(){
+        Logger.e("OnLifecycleEvent -- > onCreat")
+
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun onDestryoy(){
+        Logger.e("OnLifecycleEvent -- > onDestroy")
+
     }
 
 }

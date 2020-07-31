@@ -1,5 +1,9 @@
 package com.gzinfo.kotlintiktok.base
 
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
+import com.orhanobut.logger.Logger
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
@@ -10,7 +14,7 @@ import io.reactivex.disposables.Disposable
  *@Email:m15904921255@163.com
  *@Desc:TODO
  */
-open class RxPresenter<T : BaseView> : BasePresenter<T> {
+open class RxPresenter<T : BaseView> : BasePresenter<T> , LifecycleObserver {
 
     lateinit var mView: T
     private var mDisposables: CompositeDisposable? = null
@@ -37,4 +41,5 @@ open class RxPresenter<T : BaseView> : BasePresenter<T> {
     override fun attachView(view: T) {
         mView = view
     }
+
 }

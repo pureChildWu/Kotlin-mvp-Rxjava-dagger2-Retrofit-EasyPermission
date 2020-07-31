@@ -44,6 +44,10 @@ Kotlin 团队为 Android 开发提供了一套超越标准语言功能的工具�
   - 2.然后再RetrofitHelper里面去调用
   - 3.在present 里面就可以使用了
   - 具体调用的网络请求示例可查看MianActivity里面的示例
-  
+
+## 新增Jetpack里面的LifeCycles  
+- [LifeCycles](https://developer.android.google.cn/topic/libraries/architecture/lifecycle) 
+基类RxPresent 已经实现了activity生命周期管理的观察者LifecycleObserver 观察的回掉方法可在MainPresent里面 有实例，需要在Activity的onCreat方法里面注册present可管理生命周期
+
 ## 此开源项目仅做学习交流使用, 不可用于任何商业用途，如果你觉得不错, 对你有帮助, 欢迎点个 star 谢谢
 

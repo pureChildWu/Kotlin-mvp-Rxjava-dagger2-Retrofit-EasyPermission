@@ -1,6 +1,8 @@
 package com.gzinfo.kotlintiktok
 
 import android.Manifest
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.View
 import com.gzinfo.kotlintiktok.base.BaseActivity
 import com.orhanobut.logger.Logger
@@ -11,15 +13,16 @@ import pub.devrel.easypermissions.EasyPermissions
 import kotlin.random.Random
 
 
-class MainActivity : BaseActivity<MainPresenter>() ,MainControl.View,View.OnClickListener {
+class MainActivity() : BaseActivity<MainPresenter>() ,MainControl.View,View.OnClickListener {
 
     override fun initData() {
         mPresenter?.attachView(this)//mPresenter 初始化
+        mPresenter?.let { lifecycle.addObserver(it) }
+
         checkPermission()
         text_view.setOnClickListener {
             mPresenter?.getAdd()
         }
-
         net_button.setOnClickListener(this@MainActivity)
     }
 
@@ -80,4 +83,5 @@ class MainActivity : BaseActivity<MainPresenter>() ,MainControl.View,View.OnClic
             }
         }
     }
+
 }

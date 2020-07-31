@@ -11,7 +11,7 @@ import java.io.File
  */
 public class Constants {
     companion object{
-        private var PATH_DATA: String = App.instance!!.cacheDir.absolutePath + File.separator + "data"
+        private var PATH_DATA: String = App.instance.cacheDir.absolutePath + File.separator + "data"
         var PATH_CACHE: String = "$PATH_DATA/NetCache"
     }
 
