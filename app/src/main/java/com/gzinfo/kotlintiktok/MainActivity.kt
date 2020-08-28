@@ -1,19 +1,22 @@
 package com.gzinfo.kotlintiktok
 
 import android.Manifest
-import android.os.Parcel
-import android.os.Parcelable
+import android.content.Intent
 import android.view.View
+import androidx.appcompat.widget.FitWindowsLinearLayout
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.gzinfo.kotlintiktok.base.BaseActivity
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.Logger.e
 import kotlinx.android.synthetic.main.activity_main.*
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
+import retrofit2.Retrofit
+import java.util.*
 import kotlin.random.Random
 
 
-class MainActivity() : BaseActivity<MainPresenter>() ,MainControl.View,View.OnClickListener {
+class MainActivity : BaseActivity<MainPresenter>() ,MainControl.View,View.OnClickListener {
 
     override fun initData() {
         mPresenter?.attachView(this)//mPresenter 初始化
@@ -24,6 +27,16 @@ class MainActivity() : BaseActivity<MainPresenter>() ,MainControl.View,View.OnCl
             mPresenter?.getAdd()
         }
         net_button.setOnClickListener(this@MainActivity)
+        button1.setOnClickListener(this)
+//        ItemTouchHelper
+//        var pre = PriorityQueue();
+
+        show(3){
+            print("gaojie$it")
+            it
+        }
+//        FitWindowsLinearLayout
+//        Retrofit
     }
 
 
@@ -36,6 +49,9 @@ class MainActivity() : BaseActivity<MainPresenter>() ,MainControl.View,View.OnCl
         when(v?.id){
             net_button.id -> {
                getNetText()
+            }
+            button1.id -> {
+                startActivity(Intent(this@MainActivity,MainActivity2().javaClass))
             }
         }
 
@@ -84,4 +100,13 @@ class MainActivity() : BaseActivity<MainPresenter>() ,MainControl.View,View.OnCl
         }
     }
 
+
+    /**
+     * KOTLIN 高阶函数
+     */
+    fun show( i :Int, gaojie : (Int) -> Int){
+        println(i)
+        var gaojie1 = gaojie(i)
+        println("return$gaojie1")
+    }
 }
